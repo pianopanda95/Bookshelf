@@ -10,7 +10,7 @@
 }
 
 body {
-    background-color: var(--dark-red);
+    background-color: rgb(20, 20, 20);
 }                       
 
 nav {
@@ -22,13 +22,13 @@ nav {
 
 h1 {
     font-size: 3.5rem;
-    color: var(--orange);
-    text-shadow: 3px 3px var(--black);
+    color: var(--light-orange);
+    text-shadow: 3px 3px var(--red);
 }
 
 nav button#add-book {
-    background-color: var(--darker-red);
-    border: 3px solid var(--black);
+    background-color: var(--dark-red);
+    border: 3px solid var(--darker-red);
     width: 25%;
     padding: 10px;
 }
