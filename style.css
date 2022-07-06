@@ -1,0 +1,141 @@
+:root {
+    text-align: center;
+    font-size: 1.2rem;
+    --light-orange: rgb(255, 174, 0);
+    --orange: rgb(183, 49, 0);
+    --red: rgb(152, 0, 0);
+    --dark-red: rgb(93, 0, 0); 
+    --darker-red: rgb(50, 0, 0);
+    --black: black;
+}
+
+body {
+    background-color: var(--dark-red);
+}                       
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20%;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: var(--orange);
+    text-shadow: 3px 3px var(--black);
+}
+
+nav button#add-book {
+    background-color: var(--darker-red);
+    border: 3px solid var(--black);
+    width: 25%;
+    padding: 10px;
+}
+
+nav button#add-book:disabled {
+    opacity: 0.2;
+}
+
+#bookshelf {
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    min-height: 50vh;
+    margin: 2% auto;
+    padding: 3%;
+    border: 10px solid var(--darker-red);
+    background-color: var(--red);
+    border-radius: 5px;
+}
+
+.book-container {
+    box-sizing: border-box;
+    margin: 5px 10px 15px;
+    padding: 10px;
+    min-height: 400px;
+    min-width: 280px;
+    max-width: 350px;
+    border: 10px double var(--black);
+    /* background-color: var(--light-orange); */
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.book-container:hover {
+    transform: scale(1.05);
+}
+
+.book-container .book {
+    font-size: 1.5rem;
+}
+
+form#add-new-book{
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    top: 20%;
+    font-size: 1.4rem;
+    background-color: var(--black);
+    color: beige;
+    padding: 10px;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.text-input-div {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    margin-top: 2%;
+}
+
+.text-input-div label {
+    padding: 1%;
+}
+
+.text-input-div input {
+    background-color: maroon;
+    color: blanchedalmond;
+    font-size: 1rem;
+    padding: 1%;
+}
+
+.text-input-div input:focus {
+    background-color: var(--red);
+}
+
+button, input#read-btn {
+    box-sizing: border-box;
+    padding: 2% 5%;
+    background-color: var(--dark-red);
+    color: var(--light-orange);
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+button:hover, input#read-btn:hover {
+    opacity: 0.6;
+}
+
+button#submit-new-book {
+    background-color: var(--light-orange);
+    color: var(--black);
+    padding: 3% 6%;
+}
+
+p.pages {
+    margin-top: 80px;
+}
+
+.del-btn {
+    visibility: hidden;
+    display: block;
+    margin-top: 40px;
+    margin-left: auto;    
+    font-size: 0.6rem;
+    background-color: var(--black);
+    color: var(--orange);
+}
