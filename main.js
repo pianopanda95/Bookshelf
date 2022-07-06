@@ -1,6 +1,3 @@
-let myLybrary = [];
-const bookshelf = document.querySelector('#bookshelf');
-
 function Book(author, title, pages, read) {
     this.author = author;
     this.title = title;
@@ -8,11 +5,6 @@ function Book(author, title, pages, read) {
     this.read = read ? `Already read` : `Haven't read it yet`;
 }
 
-const b1 = new Book('J. K. Rowling', 'Harry Potter', 2000, true);
-const b2 = new Book('Jonathan Stroud', 'Bartimaeus Trilogy', 1600, true);
-const b3 = new Book('Dostoevsky', 'Crime and Punishment', 800, false);
-
-myLybrary.push(b1, b2, b3);
 
 const InfoToTag = {
     author: 'h2',
@@ -40,7 +32,7 @@ const chooseBookColor = () => {
     const randInd = Math.floor(Math.random() * (bookColors.length - 1));
      return bookColors[randInd];
 }
-function addNewBook(bookInstance){
+const addNewBook = (bookInstance) => {
 
     const newBookContainer = document.createElement('div');
     newBookContainer.classList.add('book-container');
@@ -64,8 +56,6 @@ function addNewBook(bookInstance){
     newBookContainer.style.backgroundColor = chooseBookColor();
 }
 
-myLybrary.map(book => addNewBook(book));
-
 function addDelBtn(bookCont){
     const delBtn = document.createElement('button');
     delBtn.innerText = 'DELETE';
@@ -86,6 +76,15 @@ function addDelBtn(bookCont){
         delBtn.style.visibility = 'hidden'
     });
 }
+
+const bookshelf = document.querySelector('#bookshelf');
+
+
+const b1 = new Book('J. K. Rowling', 'Harry Potter', 2000, true);
+const b2 = new Book('Jonathan Stroud', 'Bartimaeus Trilogy', 1600, true);
+const b3 = new Book('Dostoevsky', 'Crime and Punishment', 800, false);
+
+const myLybraryStart = [b1, b2, b3].map(book => addNewBook(book));
 
 
 

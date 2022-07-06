@@ -59,7 +59,6 @@ nav button#add-book:disabled {
     min-width: 280px;
     max-width: 350px;
     border: 10px double var(--black);
-    /* background-color: var(--light-orange); */
     border-radius: 3px;
     overflow: hidden;
 }
