@@ -5,7 +5,6 @@ function Book(author, title, pages, read) {
     this.read = read ? `Already read` : `Haven't read it yet`;
 }
 
-
 const InfoToTag = {
     author: 'h2',
     title: 'h3',
@@ -94,10 +93,22 @@ const myLybraryStart = [b1, b2, b3].map(book => addNewBook(book));
 const addBookForm = document.querySelector('#add-new-book');
 const addNewBookButton = document.querySelector('#add-book');
 
-addNewBookButton.addEventListener('click', () => {
-    addBookForm.style.visibility = 'visible';
-    addNewBookButton.setAttribute('disabled', '')
-});
+const toggles = () => {
+    const toggleFormVisibility = status => {
+        addBookForm.style.visibility =   status === 'visible' ? 'hidden' : 'visible';
+    }
+
+    const toggleAddNewBookButton = status => {
+        status ?  addNewBookButton.removeAttribute('disabled') :
+                  addNewBookButton.setAttribute('disabled', '');
+    }
+
+    toggleFormVisibility(addBookForm.style.visibility);
+    toggleAddNewBookButton(addNewBookButton.disabled);
+}
+
+addNewBookButton.addEventListener('click', () => toggles());
+
 
 const readButton = document.querySelector('#read-btn');
 
@@ -106,6 +117,7 @@ readButton.addEventListener('click', () => {
 });
 
 const submitNewBookButton = document.querySelector('#submit-new-book');
+
 submitNewBookButton.addEventListener('click', () => {
 
     const bookNodes = document.querySelectorAll('input');
@@ -120,9 +132,7 @@ submitNewBookButton.addEventListener('click', () => {
     const book = new Book(...bookDatas);
 
     addNewBook(book);
-
-    addBookForm.style.visibility = 'hidden';
-    addNewBookButton.removeAttribute('disabled');
+    toggles();
 
     bookNodes.forEach((node, i) => i <3 ? node.value = '' : node.value = 'YES');
 });
